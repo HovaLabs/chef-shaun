@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chef Shawn</title>
+    <meta name="description" content="description" />
+    <meta name="author" content="author" />
+    <meta name="keywords" content="keywords" />
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=font1|font2|etc"
+      type="text/css"
+    />
+    <style type="text/css">
+      :root {
+        --background: #e8ddcb;
+        --onBackground: #031634;
+        --surface1: #cdb380;
+        --onSurface1: #031634;
+        --primary: #036564;
+        --onPrimary: #e8ddcb;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --background: #031634;
+          --onBackground: #e8ddcb;
+          --surface1: #033649;
+          --onSurface1: #e8ddcb;
+          --primary: #036564;
+          --onPrimary: #e8ddcb;
+        }
+      }
+      html {
+        background-color: var(--background);
+        color: var(--onBackground);
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .hero {
+        height: 80vh;
+        background-image: url("https://placekitten.com/1200/1200");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        border: 1px solid red;
+      }
+      .hero__logo {
+        grid-row: 2;
+        padding: 32px;
+        text-align: center;
+        border: 1px solid red;
+      }
+      .hero__text {
+        grid-row: 3;
+        padding: 32px;
+        border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero__text h1 {
+        max-width: 70ch;
+        text-align: center;
+      }
+      .hero__text p {
+        max-width: 70ch;
+        text-align: center;
+      }
+      .mission-statement {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid red;
+        min-height: 320px;
+      }
+      .mission-statement h1 {
+        max-width: 70ch;
+      }
+      .mission-statement p {
+        max-width: 70ch;
+      }
+      .food-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      @media only screen and (min-width: 768px) {
+        .food-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: repeat(2, minmax(1fr 240px));
+          width: 100%;
+          min-width: 0;
+        }
+      }
+      .food-grid img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid red;
+        min-height: 320px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="hero__logo"><h1>Some Logo</h1></div>
+      <div class="hero__text">
+        <h1>Really Good Food for Really Great Times</h1>
+        <p>
+          Food is good. You like food. Sometimes you think, I should eat food.
+          Good Food. With friends. That sure would be great, well then you
+          should consider having an event and have me help out because you
+          know... reasons
+        </p>
+      </div>
+    </div>
+    <div class="mission-statement">
+      <h1>ooooo yeah</h1>
+      <p>
+        Food is good. You like food. Sometimes you think, I should eat food.
+        Good Food. With friends. That sure would be great, well then you should
+        consider having an event and have me help out because you know...
+        reasons
+      </p>
+    </div>
+    <div class="food-grid">
+      <img src="https://placekitten.com/400/400" />
+      <div>It's a kitty</div>
+      <img src="https://placekitten.com/800/800" />
+      <div>It's a doggy</div>
+      <img src="https://placekitten.com/1200/1200" />
+      <div>It's a dogcat</div>
+    </div>
+    <div class="contact">
+      <h2>Contact us to set up a thing or do the stuff</h2>
+      <p><a href="mailto:hello@test.com">hello@test.com</a></p>
+    </div>
+  </body>
+</html>
