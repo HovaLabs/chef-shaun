@@ -6,70 +6,102 @@
     <meta name="description" content="description" />
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
+
     <link
       rel="stylesheet"
-      href="//fonts.googleapis.com/css?family=font1|font2|etc"
+      href="//fonts.googleapis.com/css?family=Playfair Display|Yeseva-One|Open Sans|Roboto"
       type="text/css"
     />
+
     <style type="text/css">
       :root {
-        --background: #e8ddcb;
-        --onBackground: #031634;
-        --surface1: #cdb380;
-        --onSurface1: #031634;
-        --primary: #036564;
-        --onPrimary: #e8ddcb;
+        --background: hsl(37, 39%, 95%);
+        --onBackground: hsl(217, 89%, 11%);
+        --surface1: hsl(40, 44%, 75%);
+        --onSurface1: hsl(217, 89%, 11%);
+        --background: hsl(37, 39%, 85%);
+        --onSurface2: hsl(217, 89%, 11%);
+        --primary: hsl(179, 94%, 20%);
+        --onPrimary: hsl(37, 39%, 85%);
       }
       @media (prefers-color-scheme: dark) {
         :root {
-          --background: #031634;
-          --onBackground: #e8ddcb;
-          --surface1: #033649;
-          --onSurface1: #e8ddcb;
-          --primary: #036564;
-          --onPrimary: #e8ddcb;
+          --background: hsl(217, 89%, 11%);
+          --onBackground: hsl(37, 39%, 85%);
+          --surface1: hsl(196, 92%, 13%);
+          --onSurface1: hsl(37, 39%, 85%);
+          --surface2: hsl(217, 89%, 15%);
+          --onSurface2: hsl(37, 39%, 85%);
+          --primary: hsl(179, 94%, 20%);
+          --onPrimary: hsl(37, 39%, 85%);
         }
       }
       html {
         background-color: var(--background);
         color: var(--onBackground);
+        font-family: Open-Sans;
       }
       * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
       }
+      a {
+        color: var(--onBackground);
+      }
       .hero {
         height: 80vh;
-        background-image: url("https://placekitten.com/1200/1200");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        border: 1px solid red;
-      }
-      .hero__logo {
-        grid-row: 2;
-        padding: 32px;
-        text-align: center;
-        border: 1px solid red;
-      }
-      .hero__text {
-        grid-row: 3;
-        padding: 32px;
-        border: 1px solid red;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
       }
-      .hero__text h1 {
-        max-width: 70ch;
+      .hero__header {
+        font-family: Playfair Display;
+        font-size: clamp(24px, 8vw, 70px);
+        max-width: min(80vw, 800px);
         text-align: center;
       }
+      .hero__content {
+        font-family: Open Sans;
+        font-size: clamp(12px, 3vw, 24px);
+      }
+      .hero__video {
+        position: absolute;
+        height: 100%;
+        width: 177.77777778vh; /* 100 * 16 / 9 */
+        min-width: 100%;
+        min-height: 56.25vw; /* 100 * 9 / 16 */
+        z-index: -1;
+        opacity: 0.25;
+      }
+      .hero__logo {
+        grid-row: 2;
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        fill: var(--onBackground);
+        stroke: var(--onBackground);
+        overflow: hidden;
+        position: relative;
+      }
+      .hero__logo svg {
+        width: 100%;
+        height: 100%;
+        fill: var(--onBackground);
+      }
+      .hero__text {
+        grid-row: 3;
+        padding: 0 32px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
       .hero__text p {
-        max-width: 70ch;
+        max-width: 800px;
         text-align: center;
       }
       .mission-statement {
@@ -77,18 +109,26 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 1px solid red;
         min-height: 320px;
+        gap: 16px;
+        text-align: center;
+        padding: min(64px, 5vw);
       }
       .mission-statement h1 {
-        max-width: 70ch;
+        font-family: Roboto;
+        max-width: 800px;
       }
       .mission-statement p {
-        max-width: 70ch;
+        font-family: Playfair Display;
+        max-width: 800px;
+        font-size: clamp(24px, 5vw, 48px);
       }
       .food-grid {
         display: grid;
         grid-template-columns: 1fr;
+        background-color: var(--surface1);
+        font-family: Open Sans;
+        font-size: clamp(24px, 3vw, 36px);
       }
       @media only screen and (min-width: 768px) {
         .food-grid {
@@ -101,11 +141,13 @@
       }
       .food-grid img {
         width: 100%;
+        min-width: 100%;
         height: 100%;
+        min-height: 100%;
         object-fit: cover;
       }
       .food-grid p {
-        padding: 64px;
+        padding: min(64px, 5vw);
         min-height: 64px;
         display: flex;
         align-items: center;
@@ -116,40 +158,43 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 1px solid red;
         min-height: 320px;
+        font-family: Playfair Display;
+        gap: 16px;
+        padding: 16px;
+        background-color: var(--surface2);
       }
     </style>
   </head>
   <body>
     <div class="hero">
-      <div class="hero__logo"><h1>Some Logo</h1></div>
+      <video autoplay muted loop class="hero__video">
+        <source src="pizza2.mp4" type="video/mp4" />
+      </video>
       <div class="hero__text">
-        <h1>Really Good Food for Really Great Times</h1>
-        <p>
-          Food is good. You like food. Sometimes you think, I should eat food.
-          Good Food. With friends. That sure would be great, well then you
-          should consider having an event and have me help out because you
-          know... reasons
+        <h1 class="hero__header">Really Good Food for Really Great Times</h1>
+        <p class="hero__content">
+          Sometimes you think, "I should eat food. Good Food. With friends. That
+          sure would be great."
         </p>
       </div>
     </div>
     <div class="mission-statement">
-      <h1>ooooo yeah</h1>
+      <h1>About me</h1>
       <p>
-        Food is good. You like food. Sometimes you think, I should eat food.
-        Good Food. With friends. That sure would be great, well then you should
-        consider having an event and have me help out because you know...
-        reasons
+        My name is <b>Shawn</b>, and I love making
+        <b><i>quality experiences</i></b>
+        with <b><i>great food</i></b
+        >. I'd love to help you set up your next event.
       </p>
     </div>
     <div class="food-grid">
-      <img src="https://placekitten.com/400/400" />
-      <p>It's a kitty</p>
-      <img src="https://placekitten.com/800/800" />
-      <p>It's a doggy</p>
-      <img src="https://placekitten.com/1200/1200" />
-      <p>It's a dogcat</p>
+      <img src="grid_cutting.jpg" />
+      <p>Slicin'</p>
+      <img src="grid_fire.jpg" />
+      <p>🔥</p>
+      <img src="grid_plating.jpg" />
+      <p>Damn...</p>
     </div>
     <div class="contact">
       <h2>Contact us to set up a thing or do the stuff</h2>
